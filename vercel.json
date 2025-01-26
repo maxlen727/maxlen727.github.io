@@ -1,0 +1,8 @@
+{
+  "build": {
+    "commands": [
+      "git submodule update --init --recursive",
+      "hugo"
+    ]
+  }
+}
