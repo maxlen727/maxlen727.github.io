@@ -57,10 +57,15 @@
   pageRef = "friends"
   weight = 30
 
-#[[main]]
-#  name = "RSS"
-#  pageRef = "/index.xml"
-#  weight = 40
+[[main]]
+  name = "Memo"
+  url = "https://tgmemo.maxlen.us.kg/"
+  weight = 40
+
+[[main]]
+  name = "Rss"
+  url = "index.xml"
+  weight = 45
 
 [[main]]
   name = "About"
