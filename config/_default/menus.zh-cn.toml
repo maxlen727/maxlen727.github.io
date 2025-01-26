@@ -64,7 +64,7 @@
 
 [[main]]
   name = "Rss"
-  url = "index.xml"
+  url = "/index.xml"
   weight = 45
 
 [[main]]
