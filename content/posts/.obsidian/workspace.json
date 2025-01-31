@@ -1,0 +1,185 @@
+{
+  "main": {
+    "id": "332eae1362ea3f2e",
+    "type": "split",
+    "children": [
+      {
+        "id": "ce0b1a9eb35996fe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b6b9935aaa01985f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2021年终报告.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2021年终报告"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "726a685ab65fa6be",
+    "type": "split",
+    "children": [
+      {
+        "id": "54261bafca3e5cbd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc9646f6f32cc4ed",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "a7a4b2322ff075c8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "ae6b5e40ac7a22de",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e549d28ad0a3d171",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f51db9f9afe4265",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6d639262187cbf5f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2021年终报告.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "2021年终报告 的反向链接列表"
+            }
+          },
+          {
+            "id": "0b5f852994723eda",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "2021年终报告.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "2021年终报告 的出链列表"
+            }
+          },
+          {
+            "id": "cc3b748dcf2b7646",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "ecded1e01a04ccd5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2021年终报告.md"
+              },
+              "icon": "lucide-list",
+              "title": "2021年终报告 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "b6b9935aaa01985f",
+  "lastOpenFiles": [
+    "从0开始的openSUSE使用ft 各个发行版的使用感受.md",
+    "魔趣遗老的碎碎念（一）.md",
+    "曲线救国？Zapier自动化来实现「简悦2Pocket2Notion」.md",
+    "让Windows 10自动切换深色模式.md",
+    "推荐几款字体.md",
+    "小米手环7Pro？快逃！.md",
+    "一次刷机经历，让我开始了解安卓文件系统.md",
+    "由CrowdStrike蓝屏事件引起的思考.md",
+    "Hello Hugo.md",
+    "Hugo建站的注意事项和PaperMod的配置.md",
+    "openSUSE下fcitx5 Bug＆Fix一小记 ft openSUSE使用日志（3）.md",
+    "openSUSE下搜狗输入法Bug＆Fix一记 ft openSUSE使用日志（2）.md",
+    "Linux下新QQ Bug＆Fix一记.md",
+    "openSUSE使用日志（1）.md",
+    "Qexo的测试.md",
+    "本站的一点点历史.md",
+    "2021年终报告.md"
+  ]
+}

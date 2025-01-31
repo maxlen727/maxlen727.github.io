@@ -25,7 +25,7 @@ cover:
 ---
 ## Hugo建站，你需要注意什么
 
-先把这位大佬端出来[Sulv](https://www.sulvblog.cn/posts/blog/)。我基本是跟着Sulv的教程配置的。我只写了一些Sulv没有提到，但可能会给人造成困惑的点。如果要用hugo建站的话，不妨将这篇和Sulv的配合看。
+首先感谢[Sulv](https://www.sulvblog.cn/posts/blog/)。我基本是跟着Sulv的教程配置的。我只写了一些Sulv没有提到，但可能会给人造成困惑的点。如果要用hugo建站的话，不妨将这篇和Sulv的配合看。
 
 ### 安装hugo
 
@@ -42,7 +42,9 @@ PS： 如果无法正常运行hugo,请检查golang环境
 
 ### 建立站点文件之后就先换个主题吧
 
-hugo与hexo不大相同的一点就是配置文件这块。hexo的主题是有独立的配置文件，但hugo就一个配置文件全包揽了。所以可以先挑主题再去改配置文件。
+hugo与hexo不大相同的一点就是配置文件这块。hexo的主题是有独立的配置文件，但hugo就一个配置文件可以全包揽了，并且不同主题的配置相差很大。所以可以先挑主题再去改配置文件。
+
+如果主题要使用git子模块安装，建议使用https而不是ssh. 这会有利于后面在Vercel上的部署（如果你不准备使用Vercel那可以不管）
 
 ### 配置文件相关
 
@@ -56,11 +58,11 @@ hugo的配置文件默认应该是`hugo.toml`，可以直接改成`hugo.yaml`，
 
 正常来说`hugo new 文章名称.md`就可以在`content`下新建文章了（模板可以去`archetypes/default.md`下配置
 
-但如果你比较讲究，已经像Sulv老师一样给文章分好了类的话。那么在新建文章时的指令就变成`hugo new 分类/文章名称.md`了。
+在新建文章时也可以使用相对目录`hugo new 分类/文章名称.md`。
 
 ### 要在vercel上部署吗
 
-我只提醒一点：一定设置好vercel的环境变量！
+我需要提醒：一定设置好vercel的环境变量！
 
 ```
 HUGO_VERSION = vX.XXX.X
@@ -68,15 +70,23 @@ HUGO_VERSION = vX.XXX.X
 
 否则的话，vercel输出的网页就会是不正常的状态（比如js和css失效了之类的）
 
+另外如果你使用了ssh+git子模块的方式安装了主题，那么到了Vercel这里可能会遇到git子模块相关的困难。我的建议是将ssh方式安装的子模块卸载，使用https安装。
+
+构建指令也许应该设置为：
+
+```bash
+git submodule update --init --recursive && hugo --gc --minify
+```
+
 ---
 
-那似乎，就没有别的坑需要注意了。转入下一部分吧～
+那似乎就没有别的坑需要注意了。转入下一部分吧～
 
 ---
 
 ## PaperMod配置
 
-[PaperMod](https://github.com/adityatelange/hugo-PaperMod)是我在使用的主题，因为我个人是比较喜欢素雅的风格了。而我还（同样依据Sulv的blog）对PaperMod进行了一些必要的魔改，展示一下吧。
+[PaperMod](https://github.com/adityatelange/hugo-PaperMod)是我在使用的主题，因为我是比较喜欢素雅的风格了。我（依据Sulv的blog）对PaperMod进行了一些必要的魔改，展示一下吧。
 
 > 为什么明明照着Sulv的教程改的，这里还要再写一遍呢？
 > 因为发现Sulv的部分内容似乎已经不适合新版的hugo了，在我配置期间也造成了一些困扰。暂且都先记下来吧。

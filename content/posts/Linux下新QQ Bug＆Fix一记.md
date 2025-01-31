@@ -62,7 +62,7 @@ cover:
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.135q4uj3zo74.webp)
 
-然而热更新文件在哪里呢？这位带佬却表示不知道。
+然而热更新文件在哪里呢？咱并不知道。
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.6wssm9igupc0.webp)
 
