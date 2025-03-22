@@ -59,7 +59,7 @@
 
 [[main]]
   name = "Memo"
-  url = "https://tgmemo.maxlen.us.kg/"
+  url = "https://tgmemo.vercel.app/"
   weight = 40
 
 [[main]]
