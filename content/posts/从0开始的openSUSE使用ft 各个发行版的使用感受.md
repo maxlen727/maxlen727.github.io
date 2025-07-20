@@ -64,7 +64,7 @@ openSUSE主要有两个版本：**Tumbleweed**和**Leap** 区别在于「滚动�
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/20240212/image.1m0mvb90xx9c.webp)
 
-找个空闲空间多的盘符选择压缩卷，给openSUSE留个40GB就够用
+找个空闲空间多的盘符选择压缩卷，40GB是安装的底线，要日用还是多弄点
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/20240212/image.864mx2wi89k.png)
 
@@ -125,7 +125,7 @@ SUSE是极其注重版权的公司，不会预装闭源的英伟达显卡驱动�
 
 [SDB:NVIDIA 驱动 - openSUSE Wiki](https://zh.opensuse.org/SDB:NVIDIA_驱动)
 
-openSUSE的官方wiki已经写的非常清楚了，在SUSE下你可以轻松安装英伟达显卡驱动，并且风滚草在升级内核时会自动重编译英伟达驱动，请放心使用！
+openSUSE的官方wiki已经写的非常清楚了，在SUSE下你可以轻松安装英伟达显卡驱动，并且风滚草在升级内核时会自动重新处理这部分，请放心使用！
 
 **DLC：如果你同时是个笔记本用户**
 
@@ -135,7 +135,7 @@ SUSE Prime 提供了在 Intel 显卡和 NVIDIA 显卡之间切换的工具，它
 
 **如果你是AMD显卡或Intel显卡用户：**
 
-那你可丝毫不用担心了，得益于AMD和Intel的开源支持，openSUSE会自动安装相应的驱动，无需烦心配置了。
+那你可丝毫不用担心了，得益于AMD和Intel的开源支持，openSUSE会自动安装mesa驱动，无需烦心配置了。
 
 #### Step 3 .配置PACKMAN软件源
 
@@ -173,7 +173,7 @@ sudo zypper install --from packman ffmpeg gstreamer-plugins-{good,bad,ugly,libav
 sudo zypper install opi
 ```
 
-### 3. Linux世界广阔，我给您指条路
+### 3. Linux世界广阔
 
 openSUSE的Wiki要多看，遇到问题应该先翻wiki
 
@@ -234,7 +234,7 @@ openSUSE Software 是opi的数据来源，若遇到opi终端内无法处理的�
 
 ### Mint
 
-✨**优点**:非常易用！可以一键切换国内软件源，一键安装英伟达闭源驱动啥的，易用的不得了！**Cinnamon**桌面环境中规中矩，比KDE不足，比GNOME有余。各个地方调的也比较舒服。软件丰富、社区强大。
+✨**优点**:非常易用！可以一键切换国内软件源，一键安装英伟达闭源驱动啥的，易用的不得了！**Cinnamon**桌面环境中规中矩，比KDE不足。各个地方调的也比较舒服。软件丰富、社区强大。
 
 💣**缺点**:无
 
@@ -248,9 +248,9 @@ openSUSE Software 是opi的数据来源，若遇到opi终端内无法处理的�
 
 ### Pop!OS
 
-✨**优点**:自带英伟达闭源驱动被奉「佳话」。虽然是GNOME，但是改的比原版好用。软件丰富。依托System76商业公司。
+✨**优点**:自带英伟达闭源驱动被奉「佳话」，但现在很多发行版也都这么做了，变成基操了。虽然是GNOME，但是改的比原版好用。软件丰富。依托System76商业公司。
 
-💣**缺点**"不自动安装grub引导。我还是不喜欢GNOME。配色有点丑。
+💣**缺点**：不自动安装grub引导。我还是不喜欢GNOME。配色有点丑。
 
 ### openSUSE
 
@@ -269,9 +269,3 @@ openSUSE Software 是opi的数据来源，若遇到opi终端内无法处理的�
 ✨**优点：** 稳定，软件包数量尚可。实力雄厚，Linus在用这个发行版。依托RetHat商业公司，初安装系统非常轻量
 
 💣**缺点：** 生命周期短，dnf包管理器速度慢，默认的GNOME桌面并不好使
-
----
-
-## 💭Part 3 : 外话
-
-这文章一写就是一下午啊，但还没写完我想说的。也罢，等什么时候有功夫了再开一篇继续聊。

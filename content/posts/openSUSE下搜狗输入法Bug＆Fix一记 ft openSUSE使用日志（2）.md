@@ -40,7 +40,7 @@ opi sogou
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.5cmn11yxcvs0.webp)
 
-显然这可不是删除.config里的文件就能解决的，根据经验，我们先去openSUSE论坛里查查是怎么事？
+显然这可不是删除.config里的文件就能解决的，根据经验，先去openSUSE论坛里查查是怎么事？
 
 [搜狗输入法异常！请删除.config/SogouPY 并重启](https://forum.suse.org.cn/t/topic/10208/3)
 
@@ -68,7 +68,7 @@ sudo zypper in libQtWebKit4
 
 遂去搜索，没想到正确包名是sogou-qimpanel
 
-    ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.6pvvltu7dy80.webp)
+![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.6pvvltu7dy80.webp)
 
 这里运行之后很明显看出少了[libfcitx-qt.so.0](https://pkgs.org/download/libfcitx-qt.so.0()(64bit))运行库，遂去查找
 
@@ -90,7 +90,7 @@ pkgs这里虽没有openSUSE的，但作为Fedora的“亲戚”，我们还是�
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.69vv34ugnu80.webp)
 
-遂只得再去寻找
+只得再去寻找
 
 [RPM resource libidn.so.11()(64bit)](https://rpmfind.net/linux/rpm2html/search.php?query=libidn.so.11()(64bit))
 

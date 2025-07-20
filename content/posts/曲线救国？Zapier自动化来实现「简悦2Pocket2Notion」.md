@@ -86,6 +86,6 @@ Instapaper可没有提供那个API给我们用。
 
 ## 🕶外话
 
-话说这个Zapier的玩法真多啊，还能把Rss往各种程序里导，我们甚至可以让Notion/Pocket/Instapaper等等工具变成RSS阅读器！
+话说这个Zapier的玩法真多啊，还能把Rss往各种程序里导，甚至通过这个可以让Notion/Pocket/Instapaper等等工具变成RSS阅读器！
 
 这些我们可以以后慢慢聊……

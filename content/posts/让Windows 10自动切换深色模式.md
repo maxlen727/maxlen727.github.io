@@ -56,7 +56,7 @@ Windows 10中，还有一个夜间模式，但它并不是“Dark Mode”，我�
 
 ![https://i.bmp.ovh/imgs/2021/08/c516ce3897975ffa.png](https://i.bmp.ovh/imgs/2021/08/c516ce3897975ffa.png)
 
-唉？你以为好了？其实还没好，这只是切换了Windows为深色，而应用还不是深色，依法炮制，我们再创建一个计划程序，在启动程序中同样输入 `reg.exe`，参数输入：
+这只是切换了Windows为深色，而应用还不是深色，依法炮制，我们再创建一个计划程序，在启动程序中同样输入 `reg.exe`，参数输入：
 
 `add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v AppsUseLightTheme /t REG_DWORD /d 0 /f`
 
@@ -64,7 +64,7 @@ Windows 10中，还有一个夜间模式，但它并不是“Dark Mode”，我�
 
 ### 其余的二分之一
 
-我们依然依法炮制：在启动程序中同样输入 `reg.exe`，参数输入：
+依然依法炮制：在启动程序中同样输入 `reg.exe`，参数输入：
 
 `add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v SystemUsesLightTheme /t REG_DWORD /d 1 /f`
 

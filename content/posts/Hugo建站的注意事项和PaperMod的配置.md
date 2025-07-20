@@ -23,6 +23,8 @@ cover:
   alt: ""
   relative: false
 ---
+⚠️ 这是一篇**过时的内容**，也许不能提供参考价值，甚至可能有误导成分
+
 ## Hugo建站，你需要注意什么
 
 首先感谢[Sulv](https://www.sulvblog.cn/posts/blog/)。我基本是跟着Sulv的教程配置的。我只写了一些Sulv没有提到，但可能会给人造成困惑的点。如果要用hugo建站的话，不妨将这篇和Sulv的配合看。
