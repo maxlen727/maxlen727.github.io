@@ -11,7 +11,7 @@ title = "暮歌"
   dateFormat = "2006-01-02"
   # logo = "img/logo.png"
   # secondaryLogo = "img/secondary-logo.png"
-  description = "良辰美景奈何天，赏心乐事谁家院！"
+  description = "自留地，不是技术blog，仅仅用作我生活的记录"
   copyright = "© 2021 - { year } MaxLen All Rights Reserved."
 
 [params.author]

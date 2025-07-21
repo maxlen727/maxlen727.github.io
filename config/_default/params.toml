@@ -164,5 +164,5 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
   # fediverse = ""
 
 [rssnext]
-  # feedId = ""
-  # userId = ""
+  feedId = "131352344216671232"
+  userId = "85706335998788608"
