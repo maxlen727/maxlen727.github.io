@@ -10,9 +10,6 @@ jobs:
   check-and-submit:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup IndexNow
-    # 动态生成KEY文件以防止它们在公共存储库中泄露。
-        run: echo ${{ secrets.INDEXNOW_KEY }} > public/${{ secrets.INDEXNOW_KEY }}.txt
       - name: Indexnow-action
         uses: bojieyang/indexnow-action@v2
         with:
