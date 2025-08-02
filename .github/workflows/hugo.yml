@@ -56,13 +56,13 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Setup IndexNow
+        # 动态生成KEY文件以防止它们在公共存储库中泄露。
+        run: echo ${{ secrets.INDEXNOW_KEY }} > public/${{ secrets.INDEXNOW_KEY }}.txt
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-      - name: Setup IndexNow
-        # 动态生成KEY文件以防止它们在公共存储库中泄露。
-        run: echo ${{ secrets.INDEXNOW_KEY }} > public/${{ secrets.INDEXNOW_KEY }}.txt
 
   # Deployment job
   deploy:
