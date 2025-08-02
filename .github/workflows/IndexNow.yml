@@ -1,0 +1,25 @@
+name: Notify IndexNow
+
+on:
+  workflow_run:
+    workflows: ["Deploy Hugo site to Pages"]
+    types:
+      - completed
+
+jobs:
+  check-and-submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup IndexNow
+    # 动态生成KEY文件以防止它们在公共存储库中泄露。
+        run: echo ${{ secrets.INDEXNOW_KEY }} > public/${{ secrets.INDEXNOW_KEY }}.txt
+      - name: Indexnow-action
+        uses: bojieyang/indexnow-action@v2
+        with:
+          # https://github.com/bojieyang/indexnow-action
+          sitemap-location: "https://maxlen727.github.io/sitemap.xml"
+          since: 1
+          since-unit: "week"
+          endpoint: "www.bing.com"
+          key: ${{ secrets.INDEXNOW_KEY }}
+          key-location: https://maxlen727.github.io/${{ secrets.INDEXNOW_KEY }}.txt
