@@ -6,6 +6,7 @@ lastmod: 2025-02-09T16:10:33+08:00
 slug: 2025-deepseek-ai
 tags:
   - AI
+  - DeepSeek
 draft: false
 ---
 ## 初闻DeepSeek

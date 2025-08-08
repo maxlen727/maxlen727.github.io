@@ -3,9 +3,10 @@ title: "Linux下新QQ Bug＆Fix一记" #标题
 date: 2023-07-09T10:35:25+08:00 #创建时间
 lastmod: 2024-02-12T10:35:25+08:00 #更新时间
 author: ["MaxLen"] #作者
-tags: 
+tags:
 - Linux
 - QQ
+- openSUSE
 summary: "最近再次开始用openSUSE，没想到遇到了这个头疼的问题（7月26日更新）" #描述
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: "linux-qq-bugs-crash"

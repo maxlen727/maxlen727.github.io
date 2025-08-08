@@ -3,9 +3,11 @@ title: "openSUSE下搜狗输入法Bug＆Fix一记 ft. openSUSE使用日志（2�
 date: 2023-07-23T10:35:25+08:00 #创建时间
 lastmod: 2024-02-12T10:35:25+08:00 #更新时间
 author: ["MaxLen"] #作者
-tags: 
+tags:
 - Linux
 - 小记
+- 搜狗输入法
+- openSUSE
 summary: "Linux下几乎就没有什么好用的拼音输入法。sunpinyin，四叶草拼音啥的都试过，还是种种不舒畅。最后想到搜狗输入法，然而这货想在openSUSE下正常使用可还得花点功夫。并且解决方法还比较“偏僻”，这是我的解决思路和经验，估计能对你起到一些帮助" #描述
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: "opensuse-sogou-log-2"

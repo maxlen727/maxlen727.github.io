@@ -55,7 +55,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "https://maxlen727.github.io/"
       - name: Setup IndexNow
         # 动态生成KEY文件以防止它们在公共存储库中泄露。
         run: echo ${{ secrets.INDEXNOW_KEY }} > public/${{ secrets.INDEXNOW_KEY }}.txt

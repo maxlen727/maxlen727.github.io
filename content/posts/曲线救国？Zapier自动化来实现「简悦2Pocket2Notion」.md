@@ -3,10 +3,11 @@ title: "曲线救国？Zapier自动化来实现「简悦>Pocket>Notion」" #标�
 date: 2023-07-18T10:35:25+08:00 #创建时间
 lastmod: 2024-02-12T10:35:25+08:00 #更新时间
 author: ["MaxLen"] #作者
-tags: 
+tags:
 - Notion
 - Zapier
 - 自动化
+- 简悦
 summary: "我购买了简悦高级版，但是无法使用开发者提供的一键保存到Notion的服务，但是我看到简悦可以保存到Pocket，此时我突发奇想……" #描述
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: "simpleread-pocket-notion-zapier"

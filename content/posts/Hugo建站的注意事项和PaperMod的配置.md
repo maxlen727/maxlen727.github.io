@@ -7,8 +7,10 @@ author:
 tags:
   - 博客
   - 网站
+  - Hugo
+  - PaperMod
 summary: 最近也是换用了Hugo构建网站，中间遇到的问题和我对PaperMod的魔改在此记录一下
-weight: 
+weight:
 slug: hugo-and-papermod
 draft: false
 comments: true
@@ -229,7 +231,7 @@ body {
     display: inline-block !important;
     border-radius: 5px;
     background: none;
-    
+
     -webkit-transition: all ease-out 0.3s;
     -moz-transition: all ease-out 0.3s;
     -o-transition: all ease-out 0.3s;
@@ -250,7 +252,7 @@ body {
     transform: scale(1.1);
 }
 
-.frienddiv:hover .frienddivleft img { 
+.frienddiv:hover .frienddivleft img {
     transition: 0.9s !important;
     -webkit-transition: 0.9s !important;
     -moz-transition: 0.9s !important;
@@ -322,17 +324,17 @@ body {
         left: var(--toc-left); /* _minimum_ distance from left screen border */
         top: 100px;
         margin-left: -1000px; /* overruled by left */
-    
+
         width: calc((100vw - var(--main-width) - 2 * var(--gap)) / 2 - 2 * var(--toc-left));
         padding: 14px;
         border: solid 1px lightgray;
         font-size: 12px;
     }
-  
+
     .toc .inner {
         padding: 0;
     }
-  
+
     .toc details summary {
         margin-inline-start: 0;
         margin-bottom: 10px;
@@ -551,7 +553,7 @@ params:
 然后`hugo.yaml`中修改
 
 ```yaml
-params:  
+params:
     busuanzi:
         enable: true
 ```
@@ -564,4 +566,3 @@ params:
 
 > 版权声明：部分代码摘自「Sulv's Blog」，遵循CC 4.0 BY-SA版权协议
 > 参考链接：https://www.sulvblog.cn/posts/blog/
-

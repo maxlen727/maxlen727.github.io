@@ -3,8 +3,11 @@ title: "让Windows 10自动切换深色模式" #标题
 date: 2021-09-02T10:35:25+08:00 #创建时间
 lastmod: 2024-02-12T10:35:25+08:00 #更新时间
 author: ["MaxLen"] #作者
-tags: 
+tags:
 - 微软
+- 自动化
+- 计划任务
+- darkmode
 summary: "Windows 10中，你可以手动在设置中切换浅色or深色模式，但不能自动切换.那有没有办法让Windows 10自动切换深色模式呢？" #描述
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: "auto-darkmode-win10"

@@ -3,9 +3,11 @@ title: "话说最近Gitalk和Valine被墙了" #标题
 date: 2022-08-04T10:35:25+08:00 #创建时间
 lastmod: 2024-02-12T10:35:25+08:00 #更新时间
 author: ["MaxLen"] #作者
-tags: 
+tags:
 - 小记
 - 网站
+- Gitalk
+- Valine
 summary: "我的博客转入Gridea以来一直使用的评论系统就是Gitalk，在使用Hexo时则是Valine。" #描述
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: "gitalk-valine-gfw"
