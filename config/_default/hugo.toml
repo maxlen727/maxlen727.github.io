@@ -68,3 +68,10 @@ applyFilter = false
 name = 'fragmentrefs'
 type = 'fragments'
 weight = 10
+
+# hugo.toml
+[module]
+[[module.mounts]]
+source = "content"
+target = "content"
+excludeFiles = ["posts/Templates/default.md"]
