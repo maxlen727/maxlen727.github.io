@@ -21,8 +21,8 @@ disableImageOptimization = false
 disableTextInHeader = false
 # backgroundImageWidth = 1200
 
-defaultBackgroundImage = "murasame.jpg" # used as default for background images
-# defaultFeaturedImage = "murasame.jpg" # used as default for featured images in all articles
+defaultBackgroundImage = "background.webp" # used as default for background images
+# defaultFeaturedImage = "background.webp" # used as default for featured images in all articles
 
 highlightCurrentMenuArea = true
 smartTOC = true
