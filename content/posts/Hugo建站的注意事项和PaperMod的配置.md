@@ -12,7 +12,7 @@ tags:
 summary: 最近也是换用了Hugo构建网站，中间遇到的问题和我对PaperMod的魔改在此记录一下
 weight:
 slug: hugo-and-papermod
-draft: false
+draft: true
 comments: true
 showToc: true
 TocOpen: true

@@ -32,7 +32,7 @@ title: 由CrowdStrike蓝屏事件引起的思考
 >
 > 现在看那些劝人用Linux的那帮顶级MSFT黑怎么说
 
-这还是在telegram, 大家是一群已经被GFW筛选过的“精明人”。在B站，我更是看到了大批知其一不知其二的人大谈“Windows Updata蓝屏论”，更逆天的是有人说“CrowdStrike通过Windows Updata分发更新错误，责任在微软”......
+这还是在telegram, 大家是一群已经被GFW筛选过的“精明人”。在B站，我更是看到了大批知其一不知其二的人大谈“Windows Update蓝屏论”，更逆天的是有人说“CrowdStrike通过Windows Update分发更新错误，责任在微软”......
 
 后来[X有人发了分析报告](https://x.com/Perpetualmaniac/status/1814376668095754753)，被媒体报道后非专业的人就又开始“发挥”了：“......CrowdStrike产生了空白数据......”。🤣
 

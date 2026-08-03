@@ -30,7 +30,7 @@ cover:
 
 安装了fcitx5后竟然无法在chrome中正常输入，我打开kate试试，发现可以输入，但唯独chrome无法输入。这是什么事？
 
-我突然想到[之前读的liuf的文章](https://liuf.net/blog/2022/02/reason-i-like-fedora-over-opensuse/)中提到了fcitx5的输入问题，其原因大抵是ibus包导致的（没错，openSUSE竟然会默认同时带上ibus和fcitx包）
+我突然想到[之前读的liuf的文章](https://liuf.net/blog/2022/02/reason-i-like-fedora-over-opensuse/)中提到了fcitx5的输入问题，其原因大抵是ibus包导致的（没错，openSUSE竟然默认同时带上ibus和fcitx包）
 
 于是我就去卸载ibus包呗
 
@@ -38,15 +38,13 @@ cover:
 
 这些个相关包我都卸载了，重启，果然fcitx5就好了。
 
-然这个库是不能卸载的
+然这个库......
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.45900rt7xqw0.webp)
 
-因为
-
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.54x2iar1iy00.webp)
 
-你也不想变成这样吧
+突然想到了这个：
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.5ju3bouwgtw0.webp)
 

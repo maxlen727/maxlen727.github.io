@@ -35,7 +35,7 @@ cover:
 
 扒开KES的安装目录，关闭卡巴斯基自我防护，退出卡巴斯基
 
-顺着skin摸下去，结果发现neutral中没有我想修改的文件，还有一个resources.zip没有爆破
+顺着skin摸下去，结果发现neutral中没有我想修改的文件，还有一个resources.zip没有查看过
 
 最后瞄准了resources.zip
 

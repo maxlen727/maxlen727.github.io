@@ -27,7 +27,7 @@ cover:
 
 ## ⚙️正题：简悦>Pocket>Notion
 
-我购买了简悦高级版，但是无法使用开发者提供的一键保存到Notion的服务，但是我看到简悦可以保存到Pocket，此时我突发奇想：可不可以让简悦保存到Pocket，然后再通过Pocket的API保存到Notion呢？
+我购买了简悦高级版，但是无法使用开发者提供的一键保存到Notion的服务，但是我看到简悦可以保存到Pocket，此时我突发奇想：可不可以让简悦保存到Pocket，然后再通过Pocket保存到Notion呢？
 
 之前有过Notion自动化的经验，所以这次很轻车熟路地选择了Zapier来帮我实现自动同步（不仅如此，Zapier 还提供上百个平台的自动化方案，感兴趣的朋友可以去试试呐）
 
@@ -75,17 +75,7 @@ Okay!
 
 ---
 
-## 🎵插曲：我想用Instapaper充当中间者
-
-然而并不可以。
-
-![image](https://github.com/maxlen727/picx-images-hosting/raw/master/20240212/image.43ih4u30xt40.png)
-
-Instapaper可没有提供那个API给我们用。
-
----
-
-## 🕶外话
+## 🕶尾巴
 
 话说这个Zapier的玩法真多啊，还能把Rss往各种程序里导，甚至通过这个可以让Notion/Pocket/Instapaper等等工具变成RSS阅读器！
 

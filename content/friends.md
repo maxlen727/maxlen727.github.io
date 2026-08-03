@@ -52,4 +52,16 @@ showbreadcrumbs: false
             <td style="text-align: center; vertical-align: middle;"><a target="_blank" href="https://blowfish.page">网站</a></br></td>
         </tr>
     </tbody>
+    <tbody>
+         <tr>
+            <td style="text-align: center; vertical-align: middle;">
+            <img class="customEntitityAlbum" style="background-color:transparent; width:100px; height:100px" src="https://minstring.vercel.app/favicon/favicon-light-192.png"/>
+            </td>
+            <td style="text-align: center; vertical-align: middle;">
+              MinString 的博客
+            </td>
+            <td style="text-align: center; vertical-align: middle;">行到水穷处，坐看云起时</td>
+            <td style="text-align: center; vertical-align: middle;"><a target="_blank" href="https://minstring.vercel.app/">网站</a></br></td>
+        </tr>
+    </tbody>
 </table>

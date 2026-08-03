@@ -58,17 +58,13 @@ sudo zypper in libQtWebKit4
 
 然而并不能行。但大致了解到可能是缺少依赖所致。遂尝试用终端运行查找问题。
 
-![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.sqvg1yyiw2o.webp)
-
-然而我实在不知道搜狗拼音输入法的包名是什么，乱撞之后无果。但是openSUSE论坛中这位提到了sogouqimpanel
+openSUSE论坛中这位提到了搜狗输入法包名为sogouqimpanel
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.2m0f6cn4pf80.webp)
 
-满心欢喜尝试却也还是错的
-
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.t3vchll5bnk.webp)
 
-遂去搜索，没想到正确包名是sogou-qimpanel
+其实正确包名是sogou-qimpanel
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/image.6pvvltu7dy80.webp)
 
