@@ -11,11 +11,11 @@ rtl = false
 dateFormat = "2006-01-02"
 # logo = "img/logo.png"
 # secondaryLogo = "img/secondary-logo.png"
-description = "自留地，不是技术blog，仅仅用作我生活的记录"
+description = "自留地，不是技术 blog, 仅仅用作我生活的记录"
 copyright = "© 2021 - { year } MaxLen All Rights Reserved."
 
 [params.author]
-name = "叫我小雨好了"
+name = "微恙"
 email = "maxlen@duck.com"
 image = "img/avatars.webp"
 imageQuality = 96
