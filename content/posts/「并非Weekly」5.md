@@ -11,7 +11,7 @@ tags:
   - Galgame
   - Linux
   - Wayland
-  - nir
+  - niri
   - DMS
   - 高考
 draft: false

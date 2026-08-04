@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "「并非Weekly」5.md",
+                "file": "Linux 下如何使用 RVC 变声器.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "「并非Weekly」5"
+              "title": "Linux 下如何使用 RVC 变声器"
             }
           }
         ]
@@ -168,8 +168,12 @@
   },
   "active": "ecd071bafee9ca14",
   "lastOpenFiles": [
-    "「并非Weekly」1.md",
+    "未命名.base",
+    "未命名 1.base",
+    "Linux 下如何使用 RVC 变声器.md",
     "「并非Weekly」5.md",
+    "「诗文社的学生」开发手记 01.md",
+    "「并非Weekly」1.md",
     "「并非Weekly」4.md",
     "「并非Weekly」3.md",
     "「并非Weekly」2.md",
@@ -191,9 +195,6 @@
     "本站的一点点历史.md",
     "用PipeWire和OBS实现Linux下虚拟麦克风.md",
     "类原生联网管控，我是这样做的.md",
-    "老酷友的碎碎念.md",
-    "魔趣遗老的碎碎念（一）.md",
-    "让Windows 10自动切换深色模式.md",
     "未命名",
     "Templates",
     "未命名.canvas",
