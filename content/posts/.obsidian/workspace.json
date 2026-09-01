@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "博客，RSS，插曲，与生活.md",
+                "file": "与 AMD Ryzen 9955HX Linux 挂起恢复后音频丢失问题的斗智斗勇.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "博客，RSS，插曲，与生活"
+              "title": "与 AMD Ryzen 9955HX Linux 挂起恢复后音频丢失问题的斗智斗勇"
             }
           }
         ]
@@ -168,8 +168,12 @@
   },
   "active": "ecd071bafee9ca14",
   "lastOpenFiles": [
-    "Linux 下如何使用 RVC 变声器.md",
+    "openSUSE下搜狗输入法Bug＆Fix一记 ft openSUSE使用日志（2）.md",
+    "openSUSE下fcitx5 Bug＆Fix一小记 ft openSUSE使用日志（3）.md",
+    "与 AMD Ryzen 9955HX Linux 挂起恢复后音频丢失问题的斗智斗勇.md",
+    "从0开始的openSUSE使用ft 各个发行版的使用感受.md",
     "博客，RSS，插曲，与生活.md",
+    "Linux 下如何使用 RVC 变声器.md",
     "「诗文社的学生」开发手记 01.md",
     "「并非Weekly」5.md",
     "DeepSeek的爆火给普通人带来了什么.md",
@@ -182,8 +186,6 @@
     "Hugo建站的注意事项和PaperMod的配置.md",
     "Hello Hugo.md",
     "Qexo的测试.md",
-    "openSUSE下fcitx5 Bug＆Fix一小记 ft openSUSE使用日志（3）.md",
-    "openSUSE下搜狗输入法Bug＆Fix一记 ft openSUSE使用日志（2）.md",
     "由CrowdStrike蓝屏事件引起的思考.md",
     "推荐一些字体.md",
     "曲线救国？Zapier自动化来实现「简悦2Pocket2Notion」.md",
@@ -194,8 +196,6 @@
     "卡巴斯基KES，你好丑，我要让你变成萌萌的卡巴酱.md",
     "小米手环7Pro？快逃！.md",
     "本站的一点点历史.md",
-    "用PipeWire和OBS实现Linux下虚拟麦克风.md",
-    "类原生联网管控，我是这样做的.md",
     "未命名",
     "Templates",
     "未命名.canvas",
