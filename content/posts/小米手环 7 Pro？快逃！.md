@@ -1,12 +1,12 @@
 ---
-title: 小米手环7Pro？快逃！
+title: 小米手环 7 Pro？快逃！
 date: 2022-08-02T10:35:25+08:00
 lastmod: 2024-02-12T10:35:25+08:00
 author:
   - MaxLen
 tags:
   - 小米
-summary: 我已经使用小米手环7Pro二十多天了，首发时入的，体验下来发现这实在是一款槽点满满的设备
+summary: 使用小米手环 7Pro 二十多天，有一些问题不得不说...
 weight:
 slug: xiaomi-band-7-pro
 draft: false

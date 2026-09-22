@@ -64,4 +64,16 @@ showbreadcrumbs: false
             <td style="text-align: center; vertical-align: middle;"><a target="_blank" href="https://minstring.vercel.app/">网站</a></br></td>
         </tr>
     </tbody>
+    <tbody>
+         <tr>
+            <td style="text-align: center; vertical-align: middle;">
+            <img class="customEntitityAlbum" style="background-color:transparent; width:100px; height:100px" src="https://tino912.github.io/favicon.ico"/>
+            </td>
+            <td style="text-align: center; vertical-align: middle;">
+              Tino's 小站
+            </td>
+            <td style="text-align: center; vertical-align: middle;">生活出拳我出布 天要塌了当床铺</td>
+            <td style="text-align: center; vertical-align: middle;"><a target="_blank" href="https://tino912.github.io/">网站</a></br></td>
+        </tr>
+    </tbody>
 </table>
