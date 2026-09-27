@@ -63,8 +63,8 @@ url = "https://tgmemo.vercel.app/"
 weight = 40
 
 [[main]]
-name = "Rss"
-url = "/index.xml"
+name = "Atom"
+url = "/atom.xml"
 weight = 45
 
 [[main]]
