@@ -24,7 +24,14 @@
           * { box-sizing: border-box; }
           body {
             margin: 0;
-            background: var(--bg);
+            background-color: var(--bg);
+            background-image:
+              linear-gradient(to bottom, rgba(39, 39, 42, 0.62), rgba(39, 39, 42, 0.95)),
+              url('<xsl:value-of select="/atom:feed/atom:background"/>');
+            background-attachment: fixed, fixed;
+            background-size: cover, cover;
+            background-position: center top, center top;
+            background-repeat: no-repeat, no-repeat;
             color: var(--text);
             font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
               "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -65,7 +72,11 @@
             margin-bottom: 0.9rem;
             transition: border-color 0.15s ease, transform 0.15s ease;
           }
-          .entry:hover { border-color: var(--primary); transform: translateY(-1px); }
+          .entry.is-hovered, .entry:focus-within {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+          }
           .entry-title { margin: 0 0 0.4rem; font-size: 1.2rem; font-weight: 700; }
           .entry-title a { color: var(--text); text-decoration: none; }
           .entry-title a:hover { color: var(--primary-light); }
@@ -122,6 +133,7 @@
         </div>
 
         <script>
+          <![CDATA[
           document.addEventListener('DOMContentLoaded', function () {
             var feedUrl = document.getElementById('feed-url');
             if (feedUrl) feedUrl.textContent = location.href;
@@ -132,7 +144,28 @@
                 t.title = d.toLocaleString();
               }
             });
+
+            // 高亮防抖：快速划过时不闪烁，仅当鼠标停留约 70ms 才点亮
+            var hoverTimer = null;
+            var hovered = null;
+            function setHover(entry) {
+              if (hovered === entry) return;
+              if (hovered) hovered.classList.remove('is-hovered');
+              if (entry) entry.classList.add('is-hovered');
+              hovered = entry;
+            }
+            document.addEventListener('mousemove', function (e) {
+              var entry = e.target.closest('.entry');
+              clearTimeout(hoverTimer);
+              if (entry !== hovered && hovered) setHover(null);
+              hoverTimer = setTimeout(function () { setHover(entry); }, 70);
+            });
+            document.addEventListener('mouseleave', function () {
+              clearTimeout(hoverTimer);
+              setHover(null);
+            });
           });
+          ]]>
         </script>
       </body>
     </html>

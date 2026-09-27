@@ -19,6 +19,10 @@
   <language>{{ site.Language }}</language>
   {{ with .Site.Params.description }}<subtitle>{{ . | html }}</subtitle>{{ end }}
   {{ with .Site.Params.author.image }}<logo>{{ . | absURL }}</logo>{{ end }}
+  {{ with site.Params.defaultBackgroundImage }}
+  {{- $bg := resources.Get . -}}
+  {{- with $bg -}}{{- $bg = $bg.Resize "1200x" -}}<background>{{ $bg.RelPermalink }}</background>{{- end -}}
+  {{ end }}
   <author>
     <name>{{ (.Site.Params.author.name | default .Site.Params.Author.name) | html }}</name>
     {{ with .Site.Params.author.email | default .Site.Params.Author.email }}<email>{{ . | html }}</email>{{ end }}
