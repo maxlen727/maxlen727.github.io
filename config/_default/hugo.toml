@@ -36,8 +36,20 @@ changefreq = 'daily'
 filename = 'sitemap.xml'
 priority = 0.5
 
+[mediaTypes."application/atom+xml"]
+suffixes = ["xml"]
+
+[outputFormats.atom]
+mediaType = "application/atom+xml"
+baseName = "atom"
+rel = "alternate"
+isPlainText = true
+
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON", "ATOM"]
+section = ["HTML", "RSS", "ATOM"]
+taxonomy = ["HTML", "RSS", "ATOM"]
+term = ["HTML", "RSS", "ATOM"]
 
 [related]
 threshold = 0

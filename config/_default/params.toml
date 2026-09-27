@@ -84,6 +84,21 @@ showComments = true
 # sharingLinks = [ "twitter", "bluesky", "mastodon", "reddit", "facebook", "email", "whatsapp", "telegram"]
 showZenMode = false
 
+# 无 TOC/相关文章侧栏时，正文列的最大宽度（覆盖主题默认的 65ch）。
+# 在高分辨率屏上向右拓展，吃掉侧栏本应占用的空间。可用任意 CSS 长度，如 "80ch"/"72ch"/"55rem"。
+maxContentWidth = "80ch"
+
+[atom]
+# Atom 订阅页（/atom.xml）的展示设置
+
+# 悬停高亮防抖延迟（毫秒）：鼠标在卡片上停留多久后点亮高亮。
+# 值越大越"沉稳"（快速划过不闪烁），值越小越跟手。
+debounceMs = 70
+
+# 强调色，"R, G, B" 格式（如 "139, 92, 246"）。
+# 留空则自动跟随主题 colorScheme 当前配色的 primary 色，换配色无需手动同步。
+# accentColor = "139, 92, 246"
+
 [list]
 showHero = true
 heroStyle = "background"           # valid options: basic, big, background, thumbAndBackground

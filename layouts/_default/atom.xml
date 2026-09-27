@@ -1,0 +1,68 @@
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+{{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+{{- $pages = $pctx.Pages -}}
+{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="/atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.Language }}">
+  <id>{{ .Permalink }}</id>
+  <title>{{ if eq .Title .Site.Title }}{{ .Site.Title | html }}{{ else }}{{ with .Title }}{{ . | html }} on {{ end }}{{ .Site.Title | html }}{{ end }}</title>
+  <updated>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+  <language>{{ site.Language }}</language>
+  {{ with .Site.Params.description }}<subtitle>{{ . | html }}</subtitle>{{ end }}
+  {{ with site.Params.defaultBackgroundImage }}
+  {{- $bg := resources.Get . -}}
+  {{- with $bg -}}{{- $bg = $bg.Resize "1200x" -}}<background>{{ $bg.RelPermalink }}</background>{{- end -}}
+  {{ end }}
+  {{- /* 强调色：优先取 [atom].accentColor，否则从主题 colorScheme 配色文件推导 */ -}}
+  {{- $accent := site.Params.atom.accentColor -}}
+  {{- $accentLight := "" -}}
+  {{- if not $accent -}}
+    {{- $schemeFile := printf "css/schemes/%s.css" (site.Params.colorScheme | default "congo") -}}
+    {{- with resources.Get $schemeFile -}}
+      {{- with findRE "--color-primary-500: [0-9, ]+" .Content 1 -}}
+        {{- $accent = replaceRE "--color-primary-500: " "" (index . 0) -}}
+      {{- end -}}
+      {{- with findRE "--color-primary-400: [0-9, ]+" .Content 1 -}}
+        {{- $accentLight = replaceRE "--color-primary-400: " "" (index . 0) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{ with $accent }}<accent>{{ . }}</accent>{{ end }}
+  {{ with $accentLight }}<accentLight>{{ . }}</accentLight>{{ end }}
+  <debounce>{{ site.Params.atom.debounceMs | default 70 }}</debounce>
+  <author>
+    <name>{{ (.Site.Params.author.name | default .Site.Params.Author.name) | html }}</name>
+    {{ with .Site.Params.author.email | default .Site.Params.Author.email }}<email>{{ . | html }}</email>{{ end }}
+    <uri>{{ .Site.BaseURL }}</uri>
+  </author>
+  {{- with .OutputFormats.Get "atom" -}}
+  <link href="{{ .Permalink }}" rel="self" type="application/atom+xml" />
+  {{- end -}}
+  <link href="{{ .Permalink }}" rel="alternate" type="text/html" />
+  <generator uri="https://gohugo.io" version="{{ hugo.Version }}">Hugo</generator>
+  {{ if .Site.Params.footer.showCopyright | default true -}}
+  <rights>{{ with replace .Site.Params.copyright "{ year }" now.Year }}{{ . }}{{ else }}© {{ now.Format "2006" }} {{ .Site.Params.author.name }}{{ end }}</rights>
+  {{- end }}
+  {{ range $pages }}
+  <entry>
+    <id>{{ .Permalink }}</id>
+    <title>{{ .Title | plainify | html }}</title>
+    <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</published>
+    <updated>{{ with .Lastmod }}{{ .Format "2006-01-02T15:04:05Z07:00" }}{{ else }}{{ $.Date.Format "2006-01-02T15:04:05Z07:00" }}{{ end }}</updated>
+    <author><name>{{ (.Site.Params.author.name | default .Site.Params.Author.name) | html }}</name></author>
+    <link href="{{ .Permalink }}" rel="alternate" type="text/html" />
+    {{ with .Summary }}<summary>{{ . | plainify | htmlUnescape | html }}</summary>{{ end }}
+    <content type="html" xml:base="{{ .Permalink }}">{{ printf "<![CDATA[%s]]>" .Content | safeHTML }}</content>
+    {{ range .GetTerms "tags" }}<category term="{{ .Title | html }}" />{{ end }}
+  </entry>
+  {{ end }}
+</feed>
