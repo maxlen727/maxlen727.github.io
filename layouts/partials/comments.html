@@ -1,11 +1,82 @@
 <div id="tcomment"></div>
 <script src="https://cdn.jsdelivr.net/npm/twikoo@latest/dist/twikoo.all.min.js"></script>
 <script>
-twikoo.init({
-  envId: 'https://twikoo-bay-tau.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-  el: '#tcomment', // 容器元素
-  // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-  // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-  // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
-})
+  twikoo.init({
+    envId: 'https://twikoo-bay-tau.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+    el: '#tcomment', // 容器元素
+    // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+    // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+    // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
+  })
 </script>
+
+{{/* Twikoo 主题色统一：覆盖默认 Element 蓝(#409eff 系)，改用博客 congo 主色。
+      引用主题自身的 --color-primary-* 变量，切换 colorScheme 时评论区自动跟随。 */}}
+<style>
+  .twikoo .tk-action-link,
+  .twikoo .tk-action-icon,
+  .twikoo .tk-button--text,
+  .twikoo .tk-actions button,
+  .twikoo .tk-nick-link:hover,
+  .twikoo .tk-input-group__append .tk-button:hover,
+  .twikoo .tk-sort-item.__active,
+  .twikoo .tk-sort-item:focus,
+  .twikoo .tk-icon.__comments {
+    color: rgb(var(--color-primary-500)) !important;
+  }
+  .twikoo .tk-input__inner:focus,
+  .twikoo .tk-admin-comment-filter-type:focus {
+    border-color: rgb(var(--color-primary-500)) !important;
+  }
+  .twikoo .tk-button--primary {
+    background: rgb(var(--color-primary-500)) !important;
+    border-color: rgb(var(--color-primary-500)) !important;
+  }
+  .twikoo .tk-button:not(.tk-button--primary):not(.tk-button--text):not(.is-disabled):active,
+  .twikoo .tk-button:not(.tk-button--primary):not(.tk-button--text):not(.is-disabled):focus,
+  .twikoo .tk-button:not(.tk-button--primary):not(.tk-button--text):not(.is-disabled):hover {
+    color: rgb(var(--color-primary-500)) !important;
+    background-color: rgba(var(--color-primary-500), 0.06) !important;
+    border-color: rgba(var(--color-primary-500), 0.5) !important;
+  }
+  .twikoo .tk-button--primary:not(.is-disabled):focus,
+  .twikoo .tk-button--primary:not(.is-disabled):hover {
+    background: rgb(var(--color-primary-400)) !important;
+    border-color: rgb(var(--color-primary-400)) !important;
+  }
+  .twikoo .tk-button--primary:not(.is-disabled):active {
+    background: rgb(var(--color-primary-600)) !important;
+    border-color: rgb(var(--color-primary-600)) !important;
+  }
+  .twikoo .tk-button--primary.is-disabled,
+  .twikoo .tk-button--primary.is-disabled:active,
+  .twikoo .tk-button--primary.is-disabled:focus,
+  .twikoo .tk-button--primary.is-disabled:hover {
+    background-color: rgba(var(--color-primary-500), 0.5) !important;
+  }
+  .twikoo .tk-button--text:not(.is-disabled):focus,
+  .twikoo .tk-button--text:not(.is-disabled):hover {
+    color: rgb(var(--color-primary-400)) !important;
+  }
+  .twikoo .tk-button--text:not(.is-disabled):active {
+    color: rgb(var(--color-primary-600)) !important;
+  }
+  .twikoo .tk-tag-blue {
+    color: rgb(var(--color-primary-500)) !important;
+    background-color: rgba(var(--color-primary-500), 0.13) !important;
+    border-color: rgba(var(--color-primary-500), 0.5) !important;
+  }
+  .twikoo .tk-sort-item {
+    color: rgba(var(--color-primary-500), 0.6) !important;
+  }
+  .twikoo .tk-icon.__comments.__active {
+    background: rgb(var(--color-primary-500)) !important;
+    box-shadow: 0 0 0 0.2rem rgb(var(--color-primary-500)) !important;
+  }
+  .twikoo .tk-pagination-pager.__current {
+    background-color: rgb(var(--color-primary-500)) !important;
+  }
+  .twikoo .tk-loading-spinner .path {
+    stroke: rgb(var(--color-primary-500)) !important;
+  }
+</style>
