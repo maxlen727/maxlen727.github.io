@@ -84,6 +84,10 @@ showComments = true
 # sharingLinks = [ "twitter", "bluesky", "mastodon", "reddit", "facebook", "email", "whatsapp", "telegram"]
 showZenMode = false
 
+# 无 TOC/相关文章侧栏时，正文列的最大宽度（覆盖主题默认的 65ch）。
+# 在高分辨率屏上向右拓展，吃掉侧栏本应占用的空间。可用任意 CSS 长度，如 "80ch"/"72ch"/"55rem"。
+maxContentWidth = "80ch"
+
 [list]
 showHero = true
 heroStyle = "background"           # valid options: basic, big, background, thumbAndBackground
