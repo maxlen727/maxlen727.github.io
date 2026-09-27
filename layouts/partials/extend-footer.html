@@ -4,3 +4,21 @@
     pangu.spacingPage();
   });
 </script>
+
+{{/* 首页「一言」：从 data/hitokoto.toml 随机取一句替换 headline。
+     该 partial 被 partialCached 无条件缓存，不能依赖页面级变量（.Kind），
+     改由 JS 自我限定：h1.font-extrabold + h2 这个结构只存在于首页
+     background 布局，其他页面选择器命中为空自动跳过。
+     句库为空或 JS 被禁时回退到 headline 配置。 */}}
+{{ with .Site.Data.hitokoto.quotes }}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var el = document.querySelector("h1.font-extrabold + h2");
+      if (!el) return;
+      var quotes = {{ . | jsonify | safeJS }};
+      if (quotes && quotes.length > 0) {
+        el.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+      }
+    });
+  </script>
+{{ end }}
