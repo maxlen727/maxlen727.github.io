@@ -1,0 +1,22 @@
+{{/* HarmonySans：通过 jsdelivr CDN 引入 HarmonyOS Sans SC（简体）。
+     cn-font-split 分包，浏览器只按 unicode-range 下载页面用到的字形。
+     只覆盖主题 --font-sans（正文/标题），代码块等 mono 字体保持主题默认。
+     字重：Regular 400（正文）、Medium 500（导航）、Bold 700（标题/加粗）。 */}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-sc-webfont-splitted@1.1.0/dist/Regular.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-sc-webfont-splitted@1.1.0/dist/Medium.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-sc-webfont-splitted@1.1.0/dist/Bold.css" />
+
+<style>
+  :root {
+    --font-sans: "HarmonyOS Sans SC", ui-sans-serif, system-ui, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  /* 字距微微拉开一点，中文阅读更舒展；代码块保持等宽原样 */
+  body {
+    letter-spacing: 0.03em;
+    font-size: 1.05rem;
+  }
+  code, pre, kbd, samp {
+    letter-spacing: normal;
+  }
+</style>

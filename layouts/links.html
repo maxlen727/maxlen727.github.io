@@ -1,0 +1,173 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "single" }}
+  <article>
+    {{/* Hero（整页背景图，沿用 single.html 逻辑） */}}
+    {{ if .Params.showHero | default (site.Params.article.showHero | default false) }}
+      {{ $heroStyle := .Params.heroStyle }}
+      {{ if not $heroStyle }}{{ $heroStyle = site.Params.article.heroStyle }}{{ end }}
+      {{ $heroStyle := print "hero/" $heroStyle ".html" }}
+      {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+        {{ partial $heroStyle . }}
+      {{ else }}
+        {{ partial "hero/basic.html" . }}
+      {{ end }}
+    {{ end }}
+
+    {{ $contentWidth := site.Params.article.maxContentWidth | default "80ch" }}
+
+    {{/* Header */}}
+    <header id="single_header" class="mt-5 max-w-prose">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+    </header>
+
+    {{/* Body */}}
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      <div class="min-w-0 min-h-0 max-w-fit" style="width: 100%">
+        <div class="article-content max-w-prose mb-10" style="max-width: {{ $contentWidth }}">
+          {{ .Content }}
+        </div>
+      </div>
+    </section>
+
+    {{ with .Site.Data.friends }}
+      <div id="friends-list">
+        {{ range .friends }}
+          <a
+            class="friend-card"
+            href="{{ .url }}"
+            target="_blank"
+            rel="noopener noreferrer">
+            <div class="friend-main">
+              <div class="friend-header">
+                <span class="friend-name">{{ .title }}</span>
+              </div>
+              <div class="friend-desc">{{ .description }}</div>
+            </div>
+            <img class="friend-avatar" src="{{ .avatar }}" alt="{{ .title }}" loading="lazy" decoding="async" />
+          </a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{/* Footer / Comments */}}
+    <footer class="pt-8 max-w-prose print:hidden" style="max-width: {{ $contentWidth }}">
+      {{ if .Params.showComments | default (site.Params.article.showComments | default false) }}
+        {{ if templates.Exists "partials/comments.html" }}
+          <div class="pt-3">
+            <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+            <div class="pt-3">
+              {{ partial "comments.html" . }}
+            </div>
+          </div>
+        {{ else }}
+          {{ warnf "[BLOWFISH] Comments are enabled for %s but no comments partial exists." .File.Path }}
+        {{ end }}
+      {{ end }}
+    </footer>
+  </article>
+
+  {{/* 卡片样式沿用参考站（imasugu.cc）的横向布局，配色改用主题 CSS 变量，
+       跟随 colorScheme 自动切换明暗。 */}}
+  <style>
+    #friends-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .friend-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 100px;
+      padding: 1.25rem;
+      border: 2px solid rgba(var(--color-neutral-200), 1);
+      border-radius: 0.5rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    html.dark .friend-card {
+      border-color: rgba(var(--color-neutral-700), 1);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+    .friend-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(var(--color-primary-500), 1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    html.dark .friend-card:hover {
+      border-color: rgba(var(--color-primary-400), 1);
+    }
+    .friend-main {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .friend-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .friend-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: rgba(var(--color-neutral-900), 1);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    html.dark .friend-name {
+      color: rgba(var(--color-neutral), 1);
+    }
+    .friend-desc {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: rgba(var(--color-neutral-500), 1);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    html.dark .friend-desc {
+      color: rgba(var(--color-neutral-400), 1);
+    }
+    .friend-avatar {
+      flex: none;
+      width: 64px;
+      height: 64px;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      background: rgba(var(--color-neutral-100), 1);
+    }
+    html.dark .friend-avatar {
+      background: rgba(var(--color-neutral-700), 1);
+    }
+    @media (max-width: 640px) {
+      #friends-list {
+        grid-template-columns: 100%;
+      }
+      .friend-card {
+        min-height: 0;
+        padding: 0.875rem;
+        gap: 0.625rem;
+      }
+      .friend-name {
+        font-size: 1rem;
+      }
+      .friend-desc {
+        font-size: 0.8125rem;
+      }
+      .friend-avatar {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+{{ end }}

@@ -1,0 +1,29 @@
+# 友链数据。新增/删除友链只需在这里加一条 [[friends]] 即可。
+# title       站点名称
+# url         站点地址（卡片点击跳转，并据此自动取域名 favicon）
+# description 站点描述
+# avatar      头像地址
+
+[[friends]]
+title = "Hugo"
+url = "https://gohugo.io/"
+description = "The world's fastest framework for building websites"
+avatar = "https://gohugo.io/apple-touch-icon.png"
+
+[[friends]]
+title = "Blowfish"
+url = "https://blowfish.page"
+description = "A powerful, lightweight theme for Hugo built with Tailwind CSS."
+avatar = "https://blowfish.page/img/blowfish_logo_transparent.png"
+
+[[friends]]
+title = "MinString 的博客"
+url = "https://minstring.vercel.app/"
+description = "行到水穷处，坐看云起时"
+avatar = "https://minstring.vercel.app/favicon/favicon-light-192.png"
+
+[[friends]]
+title = "Tino's 小站"
+url = "https://tino912.github.io/"
+description = "生活出拳我出布 天要塌了当床铺"
+avatar = "https://tino912.github.io/favicon.ico"
