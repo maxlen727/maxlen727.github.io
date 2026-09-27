@@ -5,6 +5,24 @@
   <xsl:output method="html" indent="yes" />
 
   <xsl:template match="/">
+    <xsl:variable name="accent">
+      <xsl:choose>
+        <xsl:when test="/atom:feed/atom:accent"><xsl:value-of select="/atom:feed/atom:accent" /></xsl:when>
+        <xsl:otherwise>139, 92, 246</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="accentLight">
+      <xsl:choose>
+        <xsl:when test="/atom:feed/atom:accentLight"><xsl:value-of select="/atom:feed/atom:accentLight" /></xsl:when>
+        <xsl:otherwise>167, 139, 250</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="debounce">
+      <xsl:choose>
+        <xsl:when test="/atom:feed/atom:debounce"><xsl:value-of select="/atom:feed/atom:debounce" /></xsl:when>
+        <xsl:otherwise>70</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <html lang="{/atom:feed/atom:language}">
       <head>
         <meta charset="UTF-8" />
@@ -18,8 +36,8 @@
             --border: rgb(63, 63, 70);
             --text: rgb(250, 250, 250);
             --muted: rgb(161, 161, 170);
-            --primary: rgb(139, 92, 246);
-            --primary-light: rgb(167, 139, 250);
+            --primary: rgb(<xsl:value-of select="$accent" />);
+            --primary-light: rgb(<xsl:value-of select="$accentLight" />);
           }
           * { box-sizing: border-box; }
           body {
@@ -44,8 +62,8 @@
           header h1 a:hover { color: var(--primary-light); }
           .subtitle { color: var(--muted); margin: 0; font-size: 0.95rem; }
           .notice {
-            background: rgba(139, 92, 246, 0.09);
-            border: 1px solid rgba(139, 92, 246, 0.32);
+            background: rgba(<xsl:value-of select="$accent" />, 0.09);
+            border: 1px solid rgba(<xsl:value-of select="$accent" />, 0.32);
             border-left: 3px solid var(--primary);
             border-radius: 0.5rem;
             padding: 0.8rem 1rem;
@@ -84,7 +102,7 @@
           .entry-meta .sep { margin: 0 0.35rem; opacity: 0.6; }
           .tag {
             display: inline-block;
-            background: rgba(139, 92, 246, 0.14);
+            background: rgba(<xsl:value-of select="$accent" />, 0.14);
             color: var(--primary-light);
             border-radius: 0.3rem;
             padding: 0.05rem 0.4rem;
@@ -133,7 +151,6 @@
         </div>
 
         <script>
-          <![CDATA[
           document.addEventListener('DOMContentLoaded', function () {
             var feedUrl = document.getElementById('feed-url');
             if (feedUrl) feedUrl.textContent = location.href;
@@ -145,7 +162,7 @@
               }
             });
 
-            // 高亮防抖：快速划过时不闪烁，仅当鼠标停留约 70ms 才点亮
+            // 高亮防抖：快速划过时不闪烁，仅当鼠标停留指定毫秒后才点亮
             var hoverTimer = null;
             var hovered = null;
             function setHover(entry) {
@@ -157,15 +174,16 @@
             document.addEventListener('mousemove', function (e) {
               var entry = e.target.closest('.entry');
               clearTimeout(hoverTimer);
-              if (entry !== hovered && hovered) setHover(null);
-              hoverTimer = setTimeout(function () { setHover(entry); }, 70);
+              if (entry !== hovered) {
+                if (hovered) setHover(null);
+              }
+              hoverTimer = setTimeout(function () { setHover(entry); }, <xsl:value-of select="$debounce" />);
             });
             document.addEventListener('mouseleave', function () {
               clearTimeout(hoverTimer);
               setHover(null);
             });
           });
-          ]]>
         </script>
       </body>
     </html>

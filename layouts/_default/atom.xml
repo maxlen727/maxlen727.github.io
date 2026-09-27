@@ -23,6 +23,23 @@
   {{- $bg := resources.Get . -}}
   {{- with $bg -}}{{- $bg = $bg.Resize "1200x" -}}<background>{{ $bg.RelPermalink }}</background>{{- end -}}
   {{ end }}
+  {{- /* 强调色：优先取 [atom].accentColor，否则从主题 colorScheme 配色文件推导 */ -}}
+  {{- $accent := site.Params.atom.accentColor -}}
+  {{- $accentLight := "" -}}
+  {{- if not $accent -}}
+    {{- $schemeFile := printf "css/schemes/%s.css" (site.Params.colorScheme | default "congo") -}}
+    {{- with resources.Get $schemeFile -}}
+      {{- with findRE "--color-primary-500: [0-9, ]+" .Content 1 -}}
+        {{- $accent = replaceRE "--color-primary-500: " "" (index . 0) -}}
+      {{- end -}}
+      {{- with findRE "--color-primary-400: [0-9, ]+" .Content 1 -}}
+        {{- $accentLight = replaceRE "--color-primary-400: " "" (index . 0) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{ with $accent }}<accent>{{ . }}</accent>{{ end }}
+  {{ with $accentLight }}<accentLight>{{ . }}</accentLight>{{ end }}
+  <debounce>{{ site.Params.atom.debounceMs | default 70 }}</debounce>
   <author>
     <name>{{ (.Site.Params.author.name | default .Site.Params.Author.name) | html }}</name>
     {{ with .Site.Params.author.email | default .Site.Params.Author.email }}<email>{{ . | html }}</email>{{ end }}
