@@ -7,7 +7,7 @@ slug: 2025-deepseek-ai
 tags:
   - AI
   - DeepSeek
-draft: false
+draft: true
 ---
 ## 初闻DeepSeek
 
