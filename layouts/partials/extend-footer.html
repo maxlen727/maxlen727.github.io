@@ -15,3 +15,57 @@
     });
   </script>
 {{ end }}
+
+{{/* 字体切换：在右上角注入按钮，衬线/非衬线来回切，localStorage 持久化。
+     防闪烁的 class 提前应用在 extend-head 的内联脚本里完成。
+     桌面端按钮要作为 nav 直接子项才能吃到 gap-x-5 间距，故插到
+     appearance-switcher 的包裹 div 之前；移动端 switcher 无包裹 div。
+     按钮颜色与搜索/明暗图标完全一致，不做状态区分，正文本身即反馈。 */}}
+<template id="font-switcher-template">
+  <button
+    type="button"
+    aria-label="切换衬线/非衬线字体"
+    title="切换衬线/非衬线字体"
+    class="font-switcher text-base hover:text-primary-600 dark:hover:text-primary-400">
+    {{ partial "icon.html" "language" }}
+  </button>
+</template>
+
+<script>
+  (function () {
+    var SERIF = "font-serif";
+    var KEY = "font";
+    var isSerif = document.documentElement.classList.contains(SERIF);
+
+    function build(id) {
+      var tpl = document.getElementById("font-switcher-template");
+      if (!tpl) return null;
+      var btn = tpl.content.firstElementChild.cloneNode(true);
+      btn.id = id;
+      btn.addEventListener("click", function () {
+        isSerif = !isSerif;
+        document.documentElement.classList.toggle(SERIF, isSerif);
+        try { localStorage.setItem(KEY, isSerif ? "serif" : "sans"); } catch (e) {}
+      });
+      return btn;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // 只有文章页（single）才注入，首页/列表页/友链页没有 #single_header
+      if (!document.getElementById("single_header")) return;
+      var desktop = document.getElementById("appearance-switcher");
+      var mobile = document.getElementById("appearance-switcher-mobile");
+      if (desktop && desktop.parentNode) {
+        // 桌面端 switcher 外有包裹 div，插到该 div 之前成为 nav 直接子项
+        var wrapper = desktop.parentNode;
+        if (wrapper.parentNode) {
+          wrapper.parentNode.insertBefore(build("font-switcher"), wrapper);
+        }
+      }
+      if (mobile && mobile.parentNode) {
+        // 移动端 switcher 直接是 nav 子项
+        mobile.parentNode.insertBefore(build("font-switcher-mobile"), mobile);
+      }
+    });
+  })();
+</script>

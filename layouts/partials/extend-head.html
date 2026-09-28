@@ -6,6 +6,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-sc-webfont-splitted@1.1.0/dist/Medium.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-sc-webfont-splitted@1.1.0/dist/Bold.css" />
 
+{{/* 霞鹜文楷（衬线体）：cn-font-split 分包，仅 font-serif 模式按需加载字形。
+     与黑体方案一致，不阻塞首屏。 */}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-bold.css" />
+
 <style>
   :root {
     --font-sans: "HarmonyOS Sans SC", ui-sans-serif, system-ui, sans-serif,
@@ -19,6 +24,22 @@
   code, pre, kbd, samp {
     letter-spacing: normal;
   }
+  /* 衬线体（霞鹜文楷）：只作用于文章正文与文章标题，
+       导航、按钮、菜单等界面元素保持黑体不变。代码块走 mono 栈，
+       prose 内 code/pre 有显式等宽字体，不会被覆盖。 */
+  :root {
+    --font-serif: "LXGW WenKai", "HarmonyOS Sans SC", ui-serif, Georgia,
+      "Songti SC", "Noto Serif CJK SC", serif;
+  }
+  html.font-serif .article-content {
+    font-family: var(--font-serif);
+    /* 楷体字形疏朗，恢复默认字距；字面率低于黑体，放大一点便于阅读 */
+    letter-spacing: normal;
+    font-size: 1.125rem;
+  }
+  html.font-serif #single_header h1 {
+    font-family: var(--font-serif);
+  }
   /* 正文竖图限高：宽高比 < 1 的图撑满正文宽度后高度会占近两屏，
      限制最大高度并等比缩小居中，两侧留白；横图高度本就低于该值，
      完全不受影响。 hero 图不在 .article-content 内，也不受影响。 */
@@ -30,3 +51,15 @@
     margin-inline: auto;
   }
 </style>
+
+{{/* 字体切换防闪烁：body 渲染前同步读取偏好，避免衬线模式首屏闪一下黑体。
+     localStorage 读取失败（隐私模式等）时静默回退默认黑体。 */}}
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("font") === "serif") {
+        document.documentElement.classList.add("font-serif");
+      }
+    } catch (e) {}
+  })();
+</script>
