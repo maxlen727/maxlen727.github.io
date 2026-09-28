@@ -53,6 +53,11 @@
   <rights>{{ with replace .Site.Params.copyright "{ year }" now.Year }}{{ . }}{{ else }}© {{ now.Format "2006" }} {{ .Site.Params.author.name }}{{ end }}</rights>
   {{- end }}
   {{ range $pages }}
+  {{- /* 剥离 github/gitea 等 shortcode 输出的 <script> 块：RSS 阅读器
+        不执行脚本，相对路径的 /js/fetch-repo.* 在阅读器域名下 404，
+        会留下空壳卡片并造成排版错乱；卡片静态信息（仓库名/描述/星数）
+        已在构建时烘焙，剥离脚本不影响阅读。 */ -}}
+  {{- $content := replaceRE "(?s)<script[^>]*>.*?</script>" "" .Content }}
   <entry>
     <id>{{ .Permalink }}</id>
     <title>{{ .Title | plainify | html }}</title>
@@ -61,7 +66,7 @@
     <author><name>{{ (.Site.Params.author.name | default .Site.Params.Author.name) | html }}</name></author>
     <link href="{{ .Permalink }}" rel="alternate" type="text/html" />
     {{ with .Summary }}<summary>{{ . | plainify | htmlUnescape | html }}</summary>{{ end }}
-    <content type="html" xml:base="{{ .Permalink }}">{{ printf "<![CDATA[%s]]>" .Content | safeHTML }}</content>
+    <content type="html" xml:base="{{ .Permalink }}">{{ printf "<![CDATA[%s]]>" $content | safeHTML }}</content>
     {{ range .GetTerms "tags" }}<category term="{{ .Title | html }}" />{{ end }}
   </entry>
   {{ end }}

@@ -29,7 +29,7 @@ openSUSE在我使用Linux的过程中给我留下了极好的印象，我将它�
 
 ### 0. openSUSE两个版本，我适合哪个？
 
-openSUSE主要有两个版本：**Tumbleweed**和**Leap** 区别在于「滚动更新」与「稳定发行」
+openSUSE主要有两个版本：**Tumbleweed** 和 **Leap** 区别在于「滚动更新」与「稳定发行」
 
 ![image](https://github.com/maxlen727/picx-images-hosting/raw/master/20240212/image.3ocou7md89a0.webp)
 
@@ -168,7 +168,7 @@ sudo zypper install --from packman ffmpeg gstreamer-plugins-{good,bad,ugly,libav
 
 #### Step 5 .解锁openSUSE大杀器——opi
 
-**O**pen Build Service **P**ackage **I**nstaller（简称opi），这类似于Arch Linux的AUR Helper，方便用户使用**O**pen **B**uild **S**ervice（简称OBS）构建的软件包。
+**O**pen Build Service **P**ackage **I**nstaller（简称opi），这类似于Arch Linux的AUR Helper，方便用户使用 **O**pen **B**uild **S**ervice（简称OBS）构建的软件包。
 
 ```bash
 sudo zypper install opi
@@ -235,7 +235,7 @@ openSUSE Software 是opi的数据来源，若遇到opi终端内无法处理的�
 
 ### Mint
 
-✨**优点**:非常易用！可以一键切换国内软件源，一键安装英伟达闭源驱动啥的，易用的不得了！**Cinnamon**桌面环境中规中矩，比KDE不足。各个地方调的也比较舒服。软件丰富、社区强大。
+✨**优点**:非常易用！可以一键切换国内软件源，一键安装英伟达闭源驱动啥的，易用的不得了！**Cinnamon** 桌面环境中规中矩，比KDE不足。各个地方调的也比较舒服。软件丰富、社区强大。
 
 💣**缺点**:无
 
