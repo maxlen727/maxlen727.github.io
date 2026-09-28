@@ -36,6 +36,10 @@ changefreq = 'daily'
 filename = 'sitemap.xml'
 priority = 0.5
 
+# RSS/Atom 订阅源条目数上限，取最近 N 篇文章
+[services.rss]
+limit = 15
+
 [mediaTypes."application/atom+xml"]
 suffixes = ["xml"]
 

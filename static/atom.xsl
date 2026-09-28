@@ -137,7 +137,7 @@
 
           <div class="notice">
             <strong>这是一个 Atom 订阅源</strong>
-            <p>将下面的地址复制到 RSS 阅读器即可订阅，有新文章会自动推送。</p>
+            <p>将本地址复制到 RSS 阅读器即可订阅。</p>
             <code id="feed-url"></code>
           </div>
 

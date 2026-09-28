@@ -19,4 +19,14 @@
   code, pre, kbd, samp {
     letter-spacing: normal;
   }
+  /* 正文竖图限高：宽高比 < 1 的图撑满正文宽度后高度会占近两屏，
+     限制最大高度并等比缩小居中，两侧留白；横图高度本就低于该值，
+     完全不受影响。 hero 图不在 .article-content 内，也不受影响。 */
+  .article-content img {
+    max-height: 65vh;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin-inline: auto;
+  }
 </style>

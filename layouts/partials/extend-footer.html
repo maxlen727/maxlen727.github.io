@@ -1,10 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/pangu@latest/dist/browser/pangu.umd.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    pangu.spacingPage();
-  });
-</script>
-
 {{/* 首页「一言」：从 data/hitokoto.toml 随机取一句替换 headline。
      该 partial 被 partialCached 无条件缓存，不能依赖页面级变量（.Kind），
      改由 JS 自我限定：h1.font-extrabold + h2 这个结构只存在于首页
