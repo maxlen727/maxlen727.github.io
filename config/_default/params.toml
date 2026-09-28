@@ -88,6 +88,10 @@ showZenMode = false
 # 在高分辨率屏上向右拓展，吃掉侧栏本应占用的空间。可用任意 CSS 长度，如 "80ch"/"72ch"/"55rem"。
 maxContentWidth = "80ch"
 
+# 带 TOC/相关文章侧栏时，正文列的最大宽度（主题默认 65ch）。
+# 向右拓展一点，同时缩小正文与侧栏的间距。侧栏仍靠右对齐，位置不变。
+maxContentWidthWithToc = "75ch"
+
 [atom]
 # Atom 订阅页（/atom.xml）的展示设置
 
