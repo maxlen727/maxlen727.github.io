@@ -1,6 +1,6 @@
 ---
-title: 不诚心的Gal初体验：魔女的夜宴
-summary: （任何Galgame的分享体验都是有剧透的，请考虑之后再看吧）
+title: 不诚心的 Gal 初体验：魔女的夜宴
+summary: （任何 Galgame 的分享体验都是有剧透的，请考虑之后再看吧）
 date: 2025-07-16T16:46:31+08:00
 lastmod: 2025-07-21T16:46:31+08:00
 slug: gal-sanoba-witch
