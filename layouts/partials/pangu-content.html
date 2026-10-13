@@ -3,6 +3,11 @@
   做法：先用占位符把所有 HTML 标签整体摘出，对纯文本做中英文加空格，
   再把标签还原。这样跨标签的中英相邻（如 **Tumbleweed**和**Leap** ）
   也能正确处理，且标签属性（id/class/href）完全不受影响。
+
+  规则：只在「汉字 <-> 拉丁字母/数字」相邻时补空格。所有标点
+  （书名号《》、引号「」""''、括号（）【】、全角逗号句号等）一律
+  不参与——它们自带宽度，内侧贴英文不应加空格，否则会出现
+  《 Arch Linux 》这类错误排版。
 */}}
 {{- $content := .Content -}}
 {{- $tags := findRE `<[^>]*>` $content -}}
@@ -10,8 +15,8 @@
 {{- range $i, $t := $tags -}}
   {{- $masked = replace $masked $t (printf "@@TAG%d@@" $i) -}}
 {{- end -}}
-{{- $masked = replaceRE `([一-鿿，。！？：；、（）【】「」《》“”‘’])([a-zA-Z0-9])` `${1} ${2}` $masked -}}
-{{- $masked = replaceRE `([a-zA-Z0-9])([一-鿿，。！？：；、（）【】「」《》“”‘’])` `${1} ${2}` $masked -}}
+{{- $masked = replaceRE `([一-鿿])([a-zA-Z0-9])` `${1} ${2}` $masked -}}
+{{- $masked = replaceRE `([a-zA-Z0-9])([一-鿿])` `${1} ${2}` $masked -}}
 {{- range $i, $t := $tags -}}
   {{- $masked = replace $masked (printf "@@TAG%d@@" $i) $t -}}
 {{- end -}}
