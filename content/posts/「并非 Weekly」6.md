@@ -62,9 +62,9 @@ Omarchy, 就当我们才刚刚初见吧。现在假设某猫耳娘从来不知�
 
 > The malleable OS for the age of agents. Vibe your way through every alteration, tweak, or trouble.
 
-Agenitc Linux...吗？呃......各位，各位，比 Agenitic OS 的美好幻想先来到束束脑子里的是一股子营销气味。但或许这只是 AI 时代下对于人们爆炸宣传造成的 Hype Fatigue. 它到底是个什么东西，束束还需要接着去看——
+Agentic Linux...吗？呃......各位，各位，比 Agentic OS 的美好幻想先来到束束脑子里的是一股子营销气味。但或许这只是 AI 时代下对于人们爆炸宣传造成的 Hype Fatigue. 它到底是个什么东西，束束还需要接着去看——
 
-继续往下翻动官网，对于 Agenitc OS 的解释是，此系统内置了一些 Agent 工具和 SKILLS 帮助你塑造你的系统。同时看着官网上几张截图，束束隐隐能看出来这是一个使用了 hyprland 以及大量自定义配置的“发行版”。
+继续往下翻动官网，对于 Agentic OS 的解释是，此系统内置了一些 Agent 工具和 SKILLS 帮助你塑造你的系统。同时看着官网上几张截图，束束隐隐能看出来这是一个使用了 hyprland 以及大量自定义配置的“发行版”。
 
 嗯......“发行版”？好吧，好吧...其实与其说它是一个发行版，在束束眼里，它更像是一份 dotfiles.
 
