@@ -27,3 +27,9 @@ title = "Tino's 小站"
 url = "https://tino912.github.io/"
 description = "生活出拳我出布 天要塌了当床铺"
 avatar = "https://tino912.github.io/favicon.ico"
+
+[[friends]]
+title = "Clouds-remain"
+url = "https://clouds-remain.github.io/"
+description = "我的灵魂腐烂在那个夏日的一场梦境"
+avatar = "https://clouds-remain.github.io/assets/avatar.jpg"
