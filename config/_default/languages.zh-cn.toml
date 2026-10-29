@@ -11,7 +11,7 @@ rtl = false
 dateFormat = "2006-01-02"
 # logo = "img/logo.png"
 # secondaryLogo = "img/secondary-logo.png"
-description = "自留地，不是技术 blog, 仅仅用作我生活的记录"
+description = "它甚至消失不起"
 copyright = "© 2021 - { year } MaxLen All Rights Reserved."
 
 [params.author]
@@ -19,7 +19,7 @@ name = "微恙"
 email = "maxlen@duck.com"
 image = "img/avatars.webp"
 imageQuality = 96
-headline = "生命不息，折腾不止"
+headline = "它甚至消失不起"
 bio = "愿意善待每一个人，目标是创造只有爱的世界！"
 links = [
     { email = "mailto:maxlen@duck.com" },
