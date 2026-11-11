@@ -29,7 +29,7 @@ myblog/                        主仓库
 │       ├── extend-footer.html 一言脚本（已移除 CDN pangu.js）
 │       ├── pangu-content.html 构建时盘古化
 │       └── search.html        搜索框主题色修复
-├── static/atom.xsl            Atom 页 XSLT 客户端转换
+├── assets/css/atom.css        Atom 页 CSS 样式（模板，构建时注入强调色）
 └── themes/blowfish/           submodule，直接改（见下方工作流）
 ```
 
@@ -50,7 +50,7 @@ submodule 是 fork 到 `maxlen727/blowfish` 的副本，**直接在 submodule �
 | 正文宽度（无 TOC） | `params.toml` `[article].maxContentWidth` = `80ch` | 主题默认 65ch，高分辨率屏向右拓展 |
 | 正文宽度（带 TOC） | `params.toml` `[article].maxContentWidthWithToc` = `75ch` | 同步缩小正文与 TOC 间距（`pl-8`→`pl-4`），TOC 位置不动 |
 | Atom 条目数 | `hugo.toml` `[services.rss] limit` = `15` | |
-| Atom 页美化 | `layouts/_default/atom.xml` + `static/atom.xsl` | XSLT 客户端转换；模板剥离 github/gitea shortcode 输出的 `<script>`（阅读器不执行脚本，相对路径 `/js/` 会 404 并留下空壳卡片） |
+| Atom 页美化 | `layouts/_default/atom.xml` + `assets/css/atom.css` | `<?xml-stylesheet type="text/css"?>` 直接给原始 XML 上样式（**不用 XSLT**：Chrome 158 起移除，Firefox/WebKit 跟进）；CSS 经 `ExecuteAsTemplate` 注入强调色/防抖/背景图；纯 CSS 无法让条目可点击，也无法设 viewport（手机端按桌面宽度缩放）；模板剥离 github/gitea shortcode 输出的 `<script>`（阅读器不执行脚本，相对路径 `/js/` 会 404 并留下空壳卡片） |
 | Twikoo 主题色 | `layouts/partials/comments.html` | 覆盖 Element 默认蓝 #409eff，引用 `--color-primary-*` |
 | 友链 | `data/friends.toml` + `layouts/links.html` | 数据与布局分离；卡片继承主题 bg，靠 border/shadow 分层 |
 | 字体 | `extend-head.html` | HarmonyOS Sans SC（jsdelivr，cn-font-split 分包按需加载）；字距 0.03em，正文 1.05rem，代码块排除字距 |
