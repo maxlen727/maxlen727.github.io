@@ -11,12 +11,14 @@ tags:
   - 小记
 draft: false
 ---
+> 本文使用了 AI 协助写作
+
 在视频录制或直播时，OBS 不仅能作为虚拟摄像头，还能通过一些设置将音频输出转换成虚拟麦克风，以此来享受 OBS 的降噪、增益、调音或别的插件效果。
 
 ---
 ## 1. 创建虚拟音频设备
 
-KDE 6下可以利用 PipeWire 来创建虚拟设备。首先，需要建立两个虚拟设备：
+KDE 6 下可以利用 PipeWire 来创建虚拟设备。首先，需要建立两个虚拟设备：
 
 - **Virtual-Sink**：作为 OBS 的虚拟音频输出设备。
 - **Virtual-Mic**：作为虚拟麦克风输入设备，将 Virtual-Sink 的监控音频传输到其他应用程序。
@@ -70,5 +72,3 @@ pw-link Virtual-Sink:monitor_FR Virtual-Mic:input_FR
 
 ---
 以上就是 Linux 下通过 PipeWire 配置 OBS 虚拟麦克风的全部步骤，希望能帮助各位轻松实现音频传输，享受更好的直播或录制体验！(≧◡≦)喵～
-
-> 本文使用了 AI 协助写作
