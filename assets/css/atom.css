@@ -1,0 +1,179 @@
+{{- /*
+  Atom 订阅页样式：浏览器直接打开 /atom.xml 时用 CSS 渲染原始 XML。
+  取代原先的 XSLT（Chrome 158 起移除 XSLT，Firefox/WebKit 亦计划跟进）。
+  CSS 处理指令不受影响，阅读器会忽略它，对订阅零风险。
+  本文件经 resources.ExecuteAsTemplate 处理：强调色、防抖延迟、背景图在构建时注入。
+*/ -}}
+{{- $accent := site.Params.atom.accentColor -}}
+{{- $accentLight := "" -}}
+{{- if not $accent -}}
+  {{- $schemeFile := printf "css/schemes/%s.css" (site.Params.colorScheme | default "congo") -}}
+  {{- with resources.Get $schemeFile -}}
+    {{- with findRE "--color-primary-500: [0-9, ]+" .Content 1 -}}{{- $accent = replaceRE "--color-primary-500: " "" (index . 0) -}}{{- end -}}
+    {{- with findRE "--color-primary-400: [0-9, ]+" .Content 1 -}}{{- $accentLight = replaceRE "--color-primary-400: " "" (index . 0) -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $accent = $accent | default "139, 92, 246" -}}
+{{- $accentLight = $accentLight | default $accent -}}
+{{- $debounce := site.Params.atom.debounceMs | default 70 -}}
+{{- $bg := "" -}}
+{{- with site.Params.defaultBackgroundImage -}}{{- with resources.Get . -}}{{- $bg = (.Resize "1200x").RelPermalink -}}{{- end -}}{{- end -}}
+/* 与正文一致的字体（@import 必须在 @namespace 之前） */
+@import url("https://cdn.jsdelivr.net/npm/harmonyos-sans-sc-webfont-splitted@1.1.0/dist/Regular.css");
+@import url("https://cdn.jsdelivr.net/npm/harmonyos-sans-sc-webfont-splitted@1.1.0/dist/Bold.css");
+@namespace url(http://www.w3.org/2005/Atom);
+
+:root {
+  --bg: 244, 244, 245;
+  --card: 255, 255, 255;
+  --border: rgb(228, 228, 231);
+  --text: rgb(24, 24, 27);
+  --muted: rgb(113, 113, 122);
+  --summary: rgb(63, 63, 70);
+  --primary: rgb({{ $accent }});
+  --primary-text: rgb({{ $accent }});
+  --tint: {{ $accent }};
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: 39, 39, 42;
+    --card: 24, 24, 27;
+    --border: rgb(63, 63, 70);
+    --text: rgb(250, 250, 250);
+    --muted: rgb(161, 161, 170);
+    --summary: rgb(212, 212, 216);
+    --primary-text: rgb({{ $accentLight }});
+  }
+}
+
+feed {
+  display: flex;
+  flex-direction: column;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: var(--text);
+  font-family: "HarmonyOS Sans SC", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+}
+/* 背景挂在根元素上才能铺满整个视口 */
+:root {
+  background-color: rgb(var(--bg));
+  background-image:
+    linear-gradient(to bottom, rgba(var(--bg), 0.62), rgba(var(--bg), 0.95)){{ with $bg }},
+    url("{{ . }}"){{ end }};
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* 白名单：默认全部隐藏，只显示需要的元素 */
+feed > *, entry > * { display: none; }
+
+feed > title {
+  display: block;
+  order: 1;
+  margin: 0 0 0.3rem;
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+feed > subtitle {
+  display: block;
+  order: 2;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* 订阅提示 */
+feed::before {
+  order: 3;
+  content: "这是一个 Atom 订阅源\A将地址栏中的网址复制到 RSS 阅读器即可订阅。";
+  white-space: pre-line;
+  margin: 1.75rem 0 2rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(var(--tint), 0.32);
+  border-left: 3px solid var(--primary);
+  border-radius: 0.5rem;
+  background: rgba(var(--tint), 0.09);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+entry {
+  order: 4;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.25rem;
+  margin-bottom: 0.9rem;
+  padding: 1.15rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: rgb(var(--card));
+  /* 悬停高亮：用 transition-delay 实现防抖，快速划过不闪烁 */
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+entry:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition-delay: {{ $debounce }}ms;
+}
+entry > title {
+  display: block;
+  order: 1;
+  flex-basis: 100%;
+  margin-bottom: 0.1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+entry:hover > title { color: var(--primary-text); transition: color 0.15s ease {{ $debounce }}ms; }
+/* RFC 3339 时间截取前 10 个字符，只显示日期 */
+entry > published {
+  display: inline-block;
+  order: 2;
+  width: 10ch;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 0.5rem;
+  color: var(--muted);
+  /* 等宽字体保证 10ch 恰好容纳 YYYY-MM-DD，不露出 T 的残边 */
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+entry > category {
+  display: inline-block;
+  order: 3;
+  padding: 0.05rem 0.4rem;
+  border-radius: 0.3rem;
+  background: rgba(var(--tint), 0.14);
+  color: var(--primary-text);
+  font-size: 0.78rem;
+}
+entry > category::before { content: attr(term); }
+entry > summary {
+  display: block;
+  order: 4;
+  flex-basis: 100%;
+  margin-top: 0.3rem;
+  color: var(--summary);
+  font-size: 0.95rem;
+}
+
+feed > rights {
+  display: block;
+  order: 5;
+  margin-top: 2.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
