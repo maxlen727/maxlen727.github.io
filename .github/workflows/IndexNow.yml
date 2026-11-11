@@ -8,6 +8,8 @@ on:
 
 jobs:
   check-and-submit:
+    # 只在部署成功后通知搜索引擎
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Indexnow-action
